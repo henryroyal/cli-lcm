@@ -37,16 +37,23 @@ fn lcm(a: i64, b: i64) -> i64
 
 
 fn gcd(mut a: i64, mut b: i64) -> i64 {
+    let both_even: bool = { a % 2 == 0 && b % 2 == 0 };
+
     loop {
+        //println!("a={}\tb={}", a, b);
         if a == 1 || b == 1 {
             return 1;
         }
-        if a == 2 || b == 2 {
+        if both_even && (a == 2 || b == 2) {
             return 2;
         }
-        if a == 3 || b == 3 {
-            return 3;
+        if !both_even && (a == 3 || b == 3) {
+            return 1;
         }
+        if both_even && (a == 4 || b == 4) {
+            return 4;
+        }
+
         if a == b {
             return a;
         }

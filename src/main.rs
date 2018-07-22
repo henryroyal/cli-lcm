@@ -30,25 +30,27 @@ fn read_input() -> (i64, i64) {
 }
 
 
-fn lcm(mut a: i64, mut b: i64) -> i64
+fn lcm(a: i64, b: i64) -> i64
 {
-    let largest_prime = largest_shared_prime(a, b);
-    return (a * b) / largest_prime;
+    return (a * b) / gcd(a, b);
+    ;
 }
 
 
-fn largest_shared_prime(mut a: i64, mut b: i64) -> i64
-{
-    let mut d = 0;
+fn gcd(mut a: i64, mut b: i64) -> i64 {
     loop {
-        if a == b {
-            return a;
-        }
-
         if a == 1 || b == 1 {
             return 1;
         }
-
+        if a == 2 || b == 2 {
+            return 2;
+        }
+        if a == 3 || b == 3 {
+            return 3;
+        }
+        if a == b {
+            return a;
+        }
         if a > b {
             a = a - b;
         } else {

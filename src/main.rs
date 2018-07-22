@@ -33,7 +33,6 @@ fn read_input() -> (i64, i64) {
 fn lcm(a: i64, b: i64) -> i64
 {
     return (a * b) / gcd(a, b);
-    ;
 }
 
 
